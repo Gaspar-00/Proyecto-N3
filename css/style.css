@@ -1,0 +1,389 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  /* 10px / 16px  */
+  font-size: 62.5%;
+
+  overflow: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+
+  line-height: 1;
+  font-weight: 400;
+
+  overflow: hidden;
+  display: flex;
+}
+
+.container {
+  height: 100vh;
+  max-width: 128rem;
+  position: relative;
+  /* padding-bottom: 5rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 8rem;
+}
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+
+  width: 37%;
+  height: 90%;
+
+  z-index: -1;
+}
+.container::before {
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transform: translateX(-22%);
+  background-image: linear-gradient(hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+}
+.container::after {
+  /* bottom: -1.1rem;
+  right: -5rem; */
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform: translateX(22%);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.container-chat {
+  width: 28rem;
+
+  border-radius: 2rem;
+  padding: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.1);
+
+  z-index: 100;
+}
+.chat {
+  border-radius: 1.5rem;
+  width: 100%;
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Chat Header */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+
+.header {
+  display: flex;
+  align-content: center;
+  gap: 1.4rem;
+
+  /* padding: 2.6rem 0.6rem 1.4rem 0.6rem; */
+
+  padding: 2.5rem 0.6rem 1rem 0.6rem;
+
+  background-image: linear-gradient(
+    to right,
+    hsl(264, 100%, 61%),
+    hsl(293, 100%, 63%)
+  );
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+
+  position: relative;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 0;
+  width: 50%;
+  transform: translateX(50%);
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.img-perfil {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10rem;
+  border: 2px solid #fff;
+
+  align-self: center;
+
+  transition: all 0.4s;
+}
+.img-perfil:hover {
+  transform: scale(1.05);
+}
+
+.info-personal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.nombre {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #fff;
+  display: block;
+}
+.availability {
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.icon-row,
+.icon-menu {
+  color: #fff;
+  align-self: center;
+  transition: transform 0.4s;
+}
+
+.icon-row:hover,
+.icon-menu:hover {
+  transform: scale(1.2);
+}
+.icon-row {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-menu {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-left: auto;
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Chat Section */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+
+.message {
+  background-color: hsl(270, 20%, 96%);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  /* overflow-x: scroll;
+  overflow-x: auto; */
+
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+
+  padding: 0.8rem;
+
+  line-height: 1.4;
+}
+
+.message-received {
+  width: 65%;
+  padding: 0.7rem 1rem;
+  background-color: #ece4f1;
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+}
+.message-received .text {
+  font-size: 0.8rem;
+  color: hsl(276, 55%, 52%);
+}
+
+.message-sent-img {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+.message-sent-img .img-dog {
+  width: 3.6rem;
+  border-radius: 10px;
+}
+
+.message-sent {
+  background-color: hsl(0, 0%, 100%);
+  width: 65%;
+  padding: 0.7rem 1rem;
+
+  margin-left: auto;
+
+  border-radius: 7px;
+  border-bottom-right-radius: 0;
+}
+.message-sent .text {
+  font-size: 0.8rem;
+  color: hsl(271, 36%, 24%);
+}
+
+.message-received-other {
+  width: 75%;
+  font-size: 0.8rem;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    hsl(264, 100%, 61%),
+    hsl(293, 100%, 63%)
+  );
+
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+
+  display: flex;
+}
+
+.message-received-other .icon-text {
+  display: flex;
+  gap: 0.8rem;
+}
+.icon-circle {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: rgba(255, 255, 255, 0.39);
+}
+.time {
+  align-self: center;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  align-self: center;
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Section Footer + info */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+
+.send-messages {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5rem;
+  padding: 0.8rem 0.1rem 0.8rem 1rem;
+}
+/* .form {
+  display: flex;
+}
+
+.form #text-area {
+  resize: none;
+  border: none;
+} */
+
+.writing-message {
+  color: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.writing-message:after {
+  content: "";
+  position: absolute;
+  top: -0.2rem;
+  left: 0;
+  height: 120%;
+  width: 0.8px;
+  background-color: hsl(293, 100%, 63%);
+
+  /* Animacion de parpadeo */
+  animation: parpadeo 1s steps(5, start) infinite;
+}
+.icon {
+  background-color: #fff;
+
+  margin-right: 0.4rem;
+
+  cursor: pointer;
+  display: flex;
+}
+.icon-row-right {
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0.6rem;
+  color: #fff;
+  background-color: hsl(271, 36%, 24%);
+  border-radius: 50%;
+
+  transition: transform 0.4s;
+}
+.icon-row-right:hover {
+  transform: scale(0.93);
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Heading principal + info */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.8rem;
+
+  width: 31%;
+
+  z-index: 10;
+}
+.heading {
+  font-size: 3rem;
+  color: hsl(271, 36%, 24%);
+}
+.heading-info {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: hsl(270, 7%, 64%);
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Footer */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+.created {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 0.5rem;
+}
+.create-by {
+  text-align: center;
+  position: relative;
+  margin-bottom: 0.2rem;
+  color: rgb(163, 157, 170);
+}
+.link-mentor {
+  color: hsl(293, 100%, 63%);
+}
+.name {
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 500;
+}
+
+.after {
+  position: relative;
+  width: 80rem;
+}
+
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+/* Animacion */
+/* ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ */
+@keyframes parpadeo {
+  to {
+    visibility: hidden;
+  }
+}
